@@ -1,0 +1,9 @@
+<ul class="nav nav-pills nav-stacked">
+  <li class="active"><a href="/profile">Profile</a></li>
+  <li><a href="/instructor">Instructor</a></li>
+  <li><a href="/subject">Subject</a></li>
+  <li><a href="/course">Course</a></li>
+  <% if session[:user_id] %>
+    <%= button_to 'Logout', logout_path, method: :delete %>
+  <% end %>
+</ul>

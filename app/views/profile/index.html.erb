@@ -1,2 +1,2 @@
 <h1>Welcome</h1>
-It's <%= Time.now %>
+Hi, <%= User.find(session[:user_id]).name%>. It's <%= Time.now %>. You are already logged in.

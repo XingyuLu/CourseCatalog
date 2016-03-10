@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
 
+  resources :courses
+  resources :subjects
+  resources :instructors
   get 'profile' => 'profile#index'
 
   controller :sessions do
@@ -9,11 +12,13 @@ Rails.application.routes.draw do
     delete 'logout' => :destroy
   end
 
-
+  get 'instructor' => 'instructors#index'
+  get 'subject' => 'subjects#index'
+  get 'course' => 'courses#index'
   get 'sessions/create'
 
   get 'sessions/destroy'
-  root 'sessions#new'
+  root 'profile#index'
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

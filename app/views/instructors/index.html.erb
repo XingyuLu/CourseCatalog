@@ -1,0 +1,16 @@
+<table>
+  <tbody>
+    <tr>
+      <td><%= "First name" %></td>
+      <td><%= "Middle name" %></td>
+      <td><%= "Last name" %></td>
+    <tr>
+    <% @instructors.each do |instructor| %>
+      <tr>
+        <td><%= instructor.first %></td>
+        <td><%= instructor.middle %></td>
+        <td><%= instructor.last %></td>
+      <tr>
+    <% end %>
+  <tbody>
+<table>

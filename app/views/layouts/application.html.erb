@@ -7,8 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<div class="container">
+  <div class="col-xs-3">
+        <%= render "left_nav/menu_nav" %>
+  </div>
+  <div class="col-md-9">
+    <%= yield %>
+  </div>
+</div>
 </body>
 </html>
