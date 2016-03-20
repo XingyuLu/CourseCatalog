@@ -13,11 +13,17 @@ class SearchController < ApplicationController
   end
 
   def enroll
-    @enrollment = Enrollment.new
-    @enrollment.user_id = params[:user_id]
-    @enrollment.course_name = params[:course_name]
-    @enrollment.subject_name = params[:subject_name]
-    @enrollment.save
+    elment = Enrollment.new
+    elment.user_id = params[:user_id]
+    elment.course_name = params[:course_name]
+    elment.subject_name = params[:subject_name]
+    elment.save
+
+    if Enrollment.where("user_id = ? AND course_name = ?", elment.user_id, elment.course_name).count > 1
+      @enrollment = nil
+    else
+      @enrollment = elment
+    end
   end
 
 end
