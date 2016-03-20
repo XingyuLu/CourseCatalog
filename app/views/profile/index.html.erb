@@ -6,13 +6,6 @@ Hi, <%= User.find(session[:user_id]).name%>. It's <%= Time.now %>. You are alrea
   <tbody>
     <tr>
       <td><%= "Course" %></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><%= "Subject" %></td>
-
     <tr>
     <% @courseEnrolled.each do |c| %>
       <tr>
