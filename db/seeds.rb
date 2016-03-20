@@ -9,6 +9,7 @@ require 'json'
 Instructor.delete_all
 Subject.delete_all
 Course.delete_all
+CourseSubject.delete_all
 JSON.parse(open("instructor.json").read).each do |entry|
   id = entry["id"]
   first = entry["first"]
@@ -29,5 +30,14 @@ JSON.parse(open("course.json").read).each do |entry|
   name = entry["name"]
   code = entry["code"]
   description = entry["description"]
+  subs = entry["subjects"]
   Course.create(name: name, code: code, description: description)
+  subs.each do |subject|
+    s = Subject.find_by_sub_id(subject["id"])
+    if s == nil
+      CourseSubject.create(c_name: name, s_id: subject["id"])
+    else
+      CourseSubject.create(c_name: name, s_id: s.name)
+    end
+  end
 end

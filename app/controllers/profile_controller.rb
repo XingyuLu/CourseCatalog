@@ -1,6 +1,5 @@
 class ProfileController < ApplicationController
   def index
-    @total_instructors = Instructor.count
-    @total_subjects = Subject.count
+    @courseEnrolled = Enrollment.where("user_id = ?", session[:user_id])
   end
 end

@@ -1,2 +1,32 @@
 <h1>Welcome</h1>
 Hi, <%= User.find(session[:user_id]).name%>. It's <%= Time.now %>. You are already logged in.
+<% if @courseEnrolled.count != 0 %>
+<br>You have enrolled in:<br>
+<table>
+  <tbody>
+    <tr>
+      <td><%= "Course" %></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><%= "Subject" %></td>
+
+    <tr>
+    <% @courseEnrolled.each do |c| %>
+      <tr>
+        <td><%= c.course_name %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= c.subject_name %></td>
+      <tr>
+    <% end %>
+  <tbody>
+<table>
+<% else %>
+<br>You haven't enrolled in any course.<br>
+<% end %>

@@ -1,0 +1,31 @@
+<table>
+  <tbody>
+    <tr>
+      <td><%= "Course" %></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><%= "Subject" %></td>
+
+    <tr>
+    <% @foundCourse.each do |c| %>
+      <tr>
+        <td><%= c.c_name %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= c.s_id %></td>
+        <td><%= link_to 'Enroll', {:controller => "search",
+                                   :action => "enroll",
+                                   :user_id => session[:user_id],
+                                   :course_name => c.c_name,
+                                   :subject_name => c.s_id},
+                                   :method => "post" %></td>
+      <tr>
+    <% end %>
+  <tbody>
+<table>

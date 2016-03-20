@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
 
+  get 'search' => 'search#index'
+  get 'search/results'
+
+  controller :search do
+    post 'enroll' => :enroll
+  end
+
+
   resources :courses
   resources :subjects
   resources :instructors
