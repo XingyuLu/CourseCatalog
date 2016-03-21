@@ -1,16 +1,16 @@
 class SearchController < ApplicationController
   def index
-      # respond_to do |format|
-      #   format.html { redirect_to profile_url }
-      #   format.js
-      # end
       @all_subj = Subject.select(:name).uniq.order(:name).map {|i| i.name}
       @all_subj.unshift("")
   end
 
   def results
-    result = CourseSubject.search(params[:course], params[:subject]).all
-    @foundCourse = result.select(:c_name,:s_id).uniq.order(:c_name)
+    if params[:course].present? || params[:subject].present?
+      result = CourseSubject.search(params[:course], params[:subject]).all
+      @foundCourse = result.select(:c_name,:s_id).uniq.order(:c_name)
+    else
+      redirect_to search_url
+    end
   end
 
   def enroll

@@ -4,9 +4,6 @@ Hi, <%= User.find(session[:user_id]).name%>. It's <%= Time.now %>. You are alrea
 <br>You have enrolled in:<br>
 <table>
   <tbody>
-    <tr>
-      <td><%= "Course" %></td>
-    <tr>
     <% @courseEnrolled.each do |c| %>
       <tr>
         <td><%= c.course_name %></td>
