@@ -5,6 +5,7 @@ class SearchController < ApplicationController
       #   format.js
       # end
       @all_subj = Subject.select(:name).uniq.order(:name).map {|i| i.name}
+      @all_subj.unshift("")
   end
 
   def results
