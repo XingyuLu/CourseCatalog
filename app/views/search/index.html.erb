@@ -1,9 +1,0 @@
-
-<%= form_tag search_results_path, method: :get do %>
-  <label>Course Name</label>
-  <br><%= text_field_tag :course, params[:course] %></br>
-  <label>Subject</label>
-  <br><%= select_tag(:subject, options_for_select(@all_subj))%>
-  </br>
-  <br><%= submit_tag "Search", name: nil%></br>
-<% end %>

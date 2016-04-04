@@ -1,0 +1,16 @@
+<ul class="nav nav-tabs">
+  <li><a href="/profile"><button type="button" class="btn btn-info">Profile</button></a></li>
+  <li><a href="/instructor"><button type="button" class="btn btn-info">Instructor</button></a></li>
+  <li><a href="/subject"><button type="button" class="btn btn-info">Subject</button></a></li>
+  <li><a href="/course"><button type="button" class="btn btn-info">Course</button></a></li>
+  <li><a href="/courses/search"><button type="button" class="btn btn-info">Search</button></a></li>
+  <ul class="nav navbar-nav navbar-left">
+        <% if session[:user_id] %>
+            <li>
+            <%= link_to logout_path, method: :delete do %>
+              <span class="glyphicon glyphicon-log-out"></span> Log out
+            <% end %>
+          </li>
+        <% end %>
+  </ul>
+</ul>

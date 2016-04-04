@@ -1,15 +1,13 @@
 Rails.application.routes.draw do
 
-
-  get 'search' => 'search#index'
-  get 'search/results'
-
-  controller :search do
-    post 'enroll' => :enroll
+  resources :courses do
+    collection do
+      get 'search'
+      get 'do_search'
+      post 'enroll' => :enroll
+    end
   end
 
-
-  resources :courses
   resources :subjects
   resources :instructors
   get 'profile' => 'profile#index'

@@ -1,0 +1,26 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Course</th>
+      <th>Subject</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @foundCourse.each do |c| %>
+      <tr>
+        <td><%= c.c_name %></td>
+        <td><%= c.s_id %></td>
+        <td><%= link_to 'Enroll', {:controller => "courses",
+                                  :action => "enroll",
+                                  :user_id => session[:user_id],
+                                  :course_name => c.c_name,
+                                  :subject_name => c.s_id},
+                                  :method => "post", class: "btn btn-default btn-sm" %></td>
+      </tr>
+   <% end %>
+  </tbody>
+</table>

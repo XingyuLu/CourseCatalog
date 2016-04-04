@@ -2,7 +2,7 @@
 Hi, <%= User.find(session[:user_id]).name%>. It's <%= Time.now %>. You are already logged in.
 <% if @courseEnrolled.count != 0 %>
 <br>You have enrolled in:<br>
-<table>
+<table class="table">
   <tbody>
     <% @courseEnrolled.each do |c| %>
       <tr>
